@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Font Awesome -->
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+    integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<link rel="icon" type="image/png" href="./images/fav-icon.png">
+
+<title>Brew & Bean</title>
+
+<style>
+    @keyframes scrollBounce {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(6px);
+        }
+    }
+
+    #menu-toggle:checked + .hamburger span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    #menu-toggle:checked + .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+
+    #menu-toggle:checked + .hamburger span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    @media (max-width: 850px) {
+        #menu-toggle:checked ~ .nav-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+    }
+</style>
+
+</head>
+
+<body class="m-0 box-border bg-[#f7f0e7] text-[#2d1e15] font-['DM_Sans',sans-serif]">
+
+<!-- Navbar -->
+<header class="absolute top-0 left-0 z-[1000] w-full">
+    <div class="mx-[6%] flex h-[90px] w-[92%] items-center justify-between min-[1200px]:w-[1200px]">
+        <a href="#" class="flex items-center gap-[10px] text-white">
+            <span class="flex h-[42px] w-[42px] items-center justify-center rounded-full border border-white/65 bg-white/5 text-[20px]">
+                ☕
+            </span>
+            <span class="flex flex-col gap-[3px]">
+                <span class="font-['Playfair_Display',serif] text-[22px] font-semibold leading-none">
+                    Brew & Bean
+                </span>
+                <span class="text-[7px] tracking-[2.5px] opacity-75">
+                    COFFEE HOUSE
+                </span>
+            </span>
+        </a>
+
+        <!-- Mobile menu checkbox inp -->
+        <input type="checkbox" id="menu-toggle" class="hidden">
+
+        <!-- Hamburger -->
+        <label
+            for="menu-toggle"
+            aria-label="Open navigation menu"
+            class="hamburger flex  h-[40px] w-[40px] cursor-pointer flex-col items-center justify-center gap-[5px] rounded-full border border-white/30 min-[851px]:hidden">
+            <span
+                class="h-[2px] w-[20px] rounded-[10px] bg-white transition-all duration-300 ease-in-out">
+            </span>
+            <span
+                class="h-[2px] w-[20px] rounded-[10px] bg-white transition-all duration-300 ease-in-out">
+            </span>
+            <span
+                class="h-[2px] w-[20px] rounded-[10px] bg-white transition-all duration-300 ease-in-out">
+            </span>
+        </label>
+
+        <!-- navlinks -->
+        <nav class="nav-menu flex items-center gap-[32px] max-[850px]:absolute max-[850px]:left-0 max-[850px]:top-[75px] max-[850px]:w-full max-[850px]:flex-col max-[850px]:items-stretch max-[850px]:gap-[8px] max-[850px]:rounded-b-[18px] max-[850px]:bg-[#21150e] max-[850px]:p-[25px] max-[850px]:opacity-0 max-[850px]:invisible max-[850px]:-translate-y-[15px] max-[850px]:shadow-[0_15px_35px_rgba(0,0,0,0.25)] max-[850px]:transition-all max-[850px]:duration-300">
+            <a href="#"
+                class="relative text-[14px] font-medium text-[#e0a15a] transition-all duration-300 ease-in-out hover:-translate-y-px hover:text-[#d99a50] max-[850px]:w-full max-[850px]:px-[5px] max-[850px]:py-[12px] max-[850px]:text-[15px]">
+                Home
+                <span class="absolute bottom-[-9px] left-0 h-[2px] w-full rounded-[10px] bg-[#d99a50] max-[850px]:hidden">
+                </span>
+            </a>
+
+            <a href="#menu"
+                class="relative text-[14px] font-medium text-white transition-all duration-300 ease-in-out hover:-translate-y-px hover:text-[#d99a50] max-[850px]:w-full max-[850px]:px-[5px] max-[850px]:py-[12px] max-[850px]:text-[15px]">
+                Menu
+            </a>
+
+            <a href="#about"
+                class="relative text-[14px] font-medium text-white transition-all duration-300 ease-in-out hover:-translate-y-px hover:text-[#d99a50] max-[850px]:w-full max-[850px]:px-[5px] max-[850px]:py-[12px] max-[850px]:text-[15px]">
+                About
+            </a>
+
+            <a href="#contact"
+                class="relative text-[14px] font-medium text-white transition-all duration-300 ease-in-out hover:-translate-y-px hover:text-[#d99a50] max-[850px]:w-full max-[850px]:px-[5px] max-[850px]:py-[12px] max-[850px]:text-[15px]">
+                Contact
+            </a>
+
+            <a href="#order"
+                class="flex items-center justify-center gap-[8px] rounded-[15px] bg-[#834e12] px-[20px] py-[12px] text-[13px] font-semibold text-white transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-[#bd7430] hover:shadow-[0_8px_20px_rgba(216,149,69,0.25)] max-[850px]:mt-[10px] max-[850px]:w-full max-[850px]:py-[13px]">
+                <span>☕</span>
+                Order Now
+            </a>
+        </nav>
+    </div>
+</header>
+
+
+<!-- Hero Section -->
+<section
+    class="relative flex min-h-screen w-full items-center overflow-hidden bg-[#120a06] bg-[url('images/coffeee.png')] bg-cover bg-center bg-fixed text-white max-[850px]:min-h-[900px] max-[850px]:bg-[position:82%_center]">
+    <div class="absolute inset-0 z-[1] bg-[linear-gradient(90deg,rgba(8,5,3,0.25)_0%,rgba(8,5,3,0.12)_35%,rgba(8,5,3,0.05)_65%,rgba(8,5,3,0.25)_100%)] max-[850px]:bg-[linear-gradient(90deg,rgba(10,5,2,0.93)_0%,rgba(10,5,2,0.72)_55%,rgba(10,5,2,0.40)_100%)]">
+    </div>
+    <div class="relative z-[2] mx-auto flex min-h-screen w-[92%] items-center min-[1200px]:w-[1200px]">
+        <div class="w-[500px] transform-none pt-[55px] max-[850px]:w-[70%] max-[850px]:pt-[60px]">
+            <p
+                class="mb-[20px] text-[13px] font-semibold uppercase tracking-[3px] text-[#f0e4d4]">
+                SPECIALTY COFFEE
+                <span class="text-[#d99a50]">·</span>
+                GOOD COMPANY
+            </p>
+            <h1
+                class="max-w-[500px] font-['Playfair_Display',serif] text-[120px] font-semibold leading-[0.94] tracking-[-3px] text-white max-[850px]:text-[clamp(52px,9vw,75px)]">
+                Every <em
+                    class="font-['Playfair_Display',serif] font-normal italic tracking-[-3px] text-[#d99a50]">sip</em>
+                <br>
+                tells a
+                story.
+            </h1>
+
+            <p
+                class="mt-[25px] max-w-[410px] text-[15px] leading-[1.7] text-white/76">
+                Thoughtfully sourced beans, carefully brewed
+                and made for slow, beautiful moments.
+            </p>
+
+            <div class="mt-[32px] flex items-center gap-[14px]">
+                <a href="#menu" class="group inline-flex min-h-[52px] items-center justify-center gap-[10px] rounded-[5px] bg-[#834e12] px-[24px] text-[14px] font-semibold text-white transition-all duration-300 ease-in-out hover:-translate-y-[3px] hover:bg-[#885e23] hover:shadow-[0_12px_25px_rgba(217,154,80,0.25)]">
+                    Explore Our Menu
+                    <span
+                        class="text-[18px] transition-transform duration-300 group-hover:translate-x-[4px]">
+                        &rarr;
+                    </span>
+                </a>
+                <a href="#contact"
+                    class="inline-flex min-h-[52px] items-center justify-center gap-[10px] rounded-[5px] border border-white/60 bg-transparent px-[24px] text-[14px] font-semibold text-white transition-all duration-300 ease-in-out hover:-translate-y-[3px] hover:bg-[#2d1e15]">
+                    Visit our cafe
+                    <span>&rarr;</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- scroll indicator -->
+        <a href="#menu" class="absolute bottom-[35px] left-0 flex items-center gap-[12px] text-[12px] uppercase tracking-[1px] text-white/70 max-[850px]:bottom-[25px]">
+            <span
+                class="flex h-[38px] w-[38px] items-center justify-center rounded-full border border-white/50 text-[18px]"
+                style="animation: scrollBounce 2s infinite;">
+                &darr;
+            </span>
+            <span>Scroll to explore</span>
+        </a>
+    </div>
+</section>
+
+
+<!-- Menu Section -->
+<section id="menu"
+    class="bg-[#3a2114] pt-[110px] pb-[120px] text-[#2d1e15] max-[850px]:py-[80px] max-[850px]:pb-[90px]">
+    <div class="mx-auto w-[92%] min-[1200px]:w-[1200px]">
+        <div class="mb-[50px] flex items-end justify-between max-[850px]:mb-[35px] max-[850px]:flex-col max-[850px]:items-start max-[850px]:gap-[25px]">
+            <div class="max-w-[650px] max-[850px]:max-w-full">
+                <p
+                    class="mb-[15px] text-[12px] font-bold tracking-[3px] text-[#b87935]">
+                    POPULAR PICKS
+                </p>
+                <h2
+                    class="font-['Playfair_Display',serif] text-[clamp(44px,5vw,68px)] font-semibold leading-[0.98] tracking-[-2px] text-[wheat] max-[850px]:text-[clamp(42px,9vw,58px)]">
+                    Crafted for your
+                    <em class="font-normal italic text-[#b87935]">
+                        kind of moment.
+                    </em>
+                </h2>
+            </div>
+
+            <a href="#menu"
+                class="inline-flex items-center gap-[9px] border-b border-[#b87935] pb-[5px] text-[14px] font-semibold text-[wheat] transition-all duration-300 hover:gap-[14px] hover:text-[#b87935] max-[850px]:text-[13px]">
+                View Full Menu
+                <span class="text-[18px] text-[#b87935]">&rarr;</span>
+            </a>
+        </div>
+        <!-- Menu Cards -->
+        <div class="grid grid-cols-3 gap-[24px] max-[850px]:grid-cols-1 max-[850px]:gap-[20px]">
+            <!-- Card 1 -->
+            <article
+                class="group overflow-hidden rounded-[15px] border border-[#2d1e15]/[0.08] bg-[#fffaf4] transition-all duration-[750ms] ease-in-out hover:-translate-y-[8px] hover:shadow-[0_20px_45px_rgba(45,30,21,0.12)]">
+                <div
+                    class="relative h-[320px] overflow-hidden bg-[#d8c1aa] max-[850px]:h-[260px]">
+                    <img
+                        src="images/Latte.png"
+                        alt="Signature Latte"
+                        class="h-full w-full object-cover transition-transform duration-[600ms] group-hover:scale-[1.05]">
+                    <span
+                        class="absolute left-[18px] top-[18px] bg-[#fffaf4]/92 px-[11px] py-[7px] text-[9px] font-bold tracking-[1.8px] text-[#5a3926]">
+                        SIGNATURE
+                    </span>
+                </div>
+
+                <div class="px-[24px] pb-[23px] pt-[25px]">
+
+                    <div class="flex justify-between gap-[20px]">
+                        <h3
+                            class="mb-[9px] font-['Playfair_Display',serif] text-[23px] font-semibold text-[#2d1e15]">
+                            Signature Latte
+                        </h3>
+
+                        <span
+                            class="shrink-0 text-[15px] font-bold text-[#b87935]">
+                            ₹240
+                        </span>
+                    </div>
+
+                    <a href="#"
+                        class="group [23px] flex items-center justify-between border-t border-[#2d1e15]/10 pt-[17px] text-[12px] font-semibold text-[#2d1e15] transition-colors duration-300 hover:text-[#b87935]">
+                        Add to order
+                        <span
+                            class="flex h-[27px] w-[27px] items-center justify-center rounded-full border border-[#2d1e15]/20 text-[17px] text-[#b87935] transition-all duration-300 group-hover:bg-[#b87935] group-hover:text-white">
+                            +
+                        </span>
+                    </a>
+                </div>
+            </article>
+
+
+            <!-- Card 2 -->
+            <article
+                class="group overflow-hidden rounded-[15px] border border-[#2d1e15]/[0.08] bg-[#fffaf4] transition-all duration-[750ms] ease-in-out hover:-translate-y-[8px] hover:shadow-[0_20px_45px_rgba(45,30,21,0.12)]">
+                <div
+                    class="relative h-[320px] overflow-hidden bg-[#d8c1aa] max-[850px]:h-[260px]">
+                    <img
+                        src="images/espresso.jpeg"
+                        alt="Classic Espresso"
+                        class="h-full w-full object-cover transition-transform duration-[600ms] group-hover:scale-[1.05]">
+
+                    <span
+                        class="absolute left-[18px] top-[18px] bg-[#fffaf4]/92 px-[11px] py-[7px] text-[9px] font-bold tracking-[1.8px] text-[#5a3926]">
+                        CLASSIC
+                    </span>
+                </div>
+
+                <div class="px-[24px] pb-[23px] pt-[25px]">
+                    <div class="flex justify-between gap-[20px]">
+                        <h3
+                            class="mb-[9px] font-['Playfair_Display',serif] text-[23px] font-semibold text-[#2d1e15]">
+                            Classic Espresso
+                        </h3>
+
+                        <span
+                            class="shrink-0 text-[15px] font-bold text-[#b87935]">
+                            ₹160
+                        </span>
+                    </div>
+
+                    <a href="#"
+                        class="group mt-[23px] flex items-center justify-between border-t border-[#2d1e15]/10 pt-[17px] text-[12px] font-semibold text-[#2d1e15] transition-colors duration-300 hover:text-[#b87935]">
+                        Add to order
+                        <span
+                            class="flex h-[27px] w-[27px] items-center justify-center rounded-full border border-[#2d1e15]/20 text-[17px] text-[#b87935] transition-all duration-300 group-hover:bg-[#b87935] group-hover:text-white">
+                            +
+                        </span>
+                    </a>
+                </div>
+            </article>
+
+
+            <!-- Card 3 -->
+            <article
+                class="group overflow-hidden rounded-[15px] border border-[#2d1e15]/[0.08] bg-[#fffaf4] transition-all duration-[750ms] ease-in-out hover:-translate-y-[8px] hover:shadow-[0_20px_45px_rgba(45,30,21,0.12)]">
+
+                <div
+                    class="relative h-[320px] overflow-hidden bg-[#d8c1aa] max-[850px]:h-[260px]">
+
+                    <img
+                        src="images/coldbrew.jpeg"
+                        alt="Caramel Cold Brew"
+                        class="h-full w-full object-cover transition-transform duration-[600ms] group-hover:scale-[1.05]">
+
+                    <span
+                        class="absolute left-[18px] top-[18px] bg-[#fffaf4]/92 px-[11px] py-[7px] text-[9px] font-bold tracking-[1.8px] text-[#5a3926]">
+                        COLD BREW
+                    </span>
+                </div>
+
+                <div class="px-[24px] pb-[23px] pt-[25px]">
+                    <div class="flex justify-between gap-[20px]">
+                        <h3
+                            class="mb-[9px] font-['Playfair_Display',serif] text-[23px] font-semibold text-[#2d1e15]">
+                            Caramel Cold Brew
+                        </h3>
+
+                        <span
+                            class="shrink-0 text-[15px] font-bold text-[#b87935]">
+                            ₹280
+                        </span>
+                    </div>
+
+                    <a href="#"
+                        class="group mt-[23px] flex items-center justify-between border-t border-[#2d1e15]/10 pt-[17px] text-[12px] font-semibold text-[#2d1e15] transition-colors duration-300 hover:text-[#b87935]">
+                        Add to order
+                        <span
+                            class="flex h-[27px] w-[27px] items-center justify-center rounded-full border border-[#2d1e15]/20 text-[17px] text-[#b87935] transition-all duration-300 group-hover:bg-[#b87935] group-hover:text-white">
+                            +
+                        </span>
+                    </a>
+                </div>
+            </article>
+
+
+            <!-- Card 4 -->
+            <article
+                class="group overflow-hidden rounded-[15px] border border-[#2d1e15]/[0.08] bg-[#fffaf4] transition-all duration-[750ms] ease-in-out hover:-translate-y-[8px] hover:shadow-[0_20px_45px_rgba(45,30,21,0.12)]">
+
+                <div
+                    class="relative h-[320px] overflow-hidden bg-[#d8c1aa] max-[850px]:h-[260px]">
+
+                    <img
+                        src="images/americano.jpeg"
+                        alt="Americano"
+                        class="h-full w-full object-cover transition-transform duration-[600ms] group-hover:scale-[1.05]">
+
+                    <span
+                        class="absolute left-[18px] top-[18px] bg-[#fffaf4]/92 px-[11px] py-[7px] text-[9px] font-bold tracking-[1.8px] text-[#5a3926]">
+                        CLASSIC
+                    </span>
+                </div>
+
+                <div class="px-[24px] pb-[23px] pt-[25px]">
+                    <div class="flex justify-between gap-[20px]">
+                        <h3
+                            class="mb-[9px] font-['Playfair_Display',serif] text-[23px] font-semibold text-[#2d1e15]">
+                            Americano
+                        </h3>
+
+                        <span
+                            class="shrink-0 text-[15px] font-bold text-[#b87935]">
+                            ₹180
+                        </span>
+                    </div>
+
+                    <a href="#"
+                        class="group mt-[23px] flex items-center justify-between border-t border-[#2d1e15]/10 pt-[17px] text-[12px] font-semibold text-[#2d1e15] transition-colors duration-300 hover:text-[#b87935]">
+                        Add to order
+                        <span
+                            class="flex h-[27px] w-[27px] items-center justify-center rounded-full border border-[#2d1e15]/20 text-[17px] text-[#b87935] transition-all duration-300 group-hover:bg-[#b87935] group-hover:text-white">
+                            +
+                        </span>
+                    </a>
+                </div>
+            </article>
+
+
+            <!-- Card 5 -->
+            <article
+                class="group overflow-hidden rounded-[15px] border border-[#2d1e15]/[0.08] bg-[#fffaf4] transition-all duration-[750ms] ease-in-out hover:-translate-y-[8px] hover:shadow-[0_20px_45px_rgba(45,30,21,0.12)]">
+
+                <div
+                    class="relative h-[320px] overflow-hidden bg-[#d8c1aa] max-[850px]:h-[260px]">
+
+                    <img
+                        src="images/mocha.jpeg"
+                        alt="Mocha"
+                        class="h-full w-full object-cover transition-transform duration-[600ms] group-hover:scale-[1.05]">
+
+                    <span
+                        class="absolute left-[18px] top-[18px] bg-[#fffaf4]/92 px-[11px] py-[7px] text-[9px] font-bold tracking-[1.8px] text-[#5a3926]">
+                        CHOCOLATE
+                    </span>
+                </div>
+
+                <div class="px-[24px] pb-[23px] pt-[25px]">
+                    <div class="flex justify-between gap-[20px]">
+                        <h3
+                            class="mb-[9px] font-['Playfair_Display',serif] text-[23px] font-semibold text-[#2d1e15]">
+                            Mocha
+                        </h3>
+
+                        <span
+                            class="shrink-0 text-[15px] font-bold text-[#b87935]">
+                            ₹220
+                        </span>
+                    </div>
+
+                    <a href="#"
+                        class="group mt-[23px] flex items-center justify-between border-t border-[#2d1e15]/10 pt-[17px] text-[12px] font-semibold text-[#2d1e15] transition-colors duration-300 hover:text-[#b87935]">
+                        Add to order
+                        <span
+                            class="flex h-[27px] w-[27px] items-center justify-center rounded-full border border-[#2d1e15]/20 text-[17px] text-[#b87935] transition-all duration-300 group-hover:bg-[#b87935] group-hover:text-white">
+                            +
+                        </span>
+                    </a>
+                </div>
+            </article>
+
+
+            <!-- Card 6 -->
+            <article
+                class="group overflow-hidden rounded-[15px] border border-[#2d1e15]/[0.08] bg-[#fffaf4] transition-all duration-[750ms] ease-in-out hover:-translate-y-[8px] hover:shadow-[0_20px_45px_rgba(45,30,21,0.12)]">
+
+                <div
+                    class="relative h-[320px] overflow-hidden bg-[#d8c1aa] max-[850px]:h-[260px]">
+
+                    <img
+                        src="images/cappuccino.jpeg"
+                        alt="Cappuccino"
+                        class="h-full w-full object-cover transition-transform duration-[600ms] group-hover:scale-[1.05]">
+
+                    <span
+                        class="absolute left-[18px] top-[18px] bg-[#fffaf4]/92 px-[11px] py-[7px] text-[9px] font-bold tracking-[1.8px] text-[#5a3926]">
+                        CLASSIC
+                    </span>
+                </div>
+
+                <div class="px-[24px] pb-[23px] pt-[25px]">
+                    <div class="flex justify-between gap-[20px]">
+                        <h3
+                            class="mb-[9px] font-['Playfair_Display',serif] text-[23px] font-semibold text-[#2d1e15]">
+                            Cappuccino
+                        </h3>
+
+                        <span
+                            class="shrink-0 text-[15px] font-bold text-[#b87935]">
+                            ₹220
+                        </span>
+                    </div>
+
+                    <a href="#"
+                        class="group mt-[23px] flex items-center justify-between border-t border-[#2d1e15]/10 pt-[17px] text-[12px] font-semibold text-[#2d1e15] transition-colors duration-300 hover:text-[#b87935]">
+                        Add to order
+                        <span
+                            class="flex h-[27px] w-[27px] items-center justify-center rounded-full border border-[#2d1e15]/20 text-[17px] text-[#b87935] transition-all duration-300 group-hover:bg-[#b87935] group-hover:text-white">
+                            +
+                        </span>
+                    </a>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Story Section -->
+<section
+    id="about"
+    class=" bg-[#fffaf4] bg-[url('./images/backgroundimg.jpeg')] py-[120px] text-[#2d1e15] max-[850px]:py-[80px] max-[850px]:pb-[90px]">
+
+    <div class="mx-auto grid w-[92%] grid-cols-2 items-center gap-[90px] min-[1100px]:w-[1100px] max-[850px]:grid-cols-1 max-[850px]:gap-[50px]">
+
+        <div class="group relative h-[570px] overflow-hidden max-[850px]:h-[400px]">
+            <img
+                src="images/story-image.jpeg"
+                alt="Warm Brew & Bean café interior"
+                class="h-full w-full rounded-[10px] object-cover transition-transform duration-[600ms] group-hover:scale-[1.04]">
+
+            <div
+                class="absolute bottom-[22px] right-[22px] flex h-[82px] w-[82px] flex-col items-center justify-center rounded-full bg-[#d99a50] text-[#24140b] max-[850px]:bottom-[18px] max-[850px]:right-[18px]">
+
+                <span
+                    class="text-[8px] font-bold tracking-[2px]">
+                    EST.
+                </span>
+
+                <strong
+                    class="mt-[3px] font-['Playfair_Display',serif] text-[20px] font-semibold">
+                    2024
+                </strong>
+            </div>
+        </div>
+
+        <div class="max-w-[480px] max-[850px]:max-w-full">
+            <p
+                class="mb-[15px] text-[12px] font-bold tracking-[3px] text-[#b87935]">
+                OUR STORY
+            </p>
+
+            <h2
+                class="mt-[5px] font-['Playfair_Display',serif] text-[clamp(44px,4.5vw,62px)] font-semibold leading-[1.02] tracking-[-2px] text-[#2d1e15] max-[850px]:text-[clamp(42px,9vw,58px)]">
+                More than coffee.
+                <br>
+                <em
+                    class="font-normal italic text-[#b87935]">
+                    A place to slow down.
+                </em>
+            </h2>
+            <p
+                class="mt-[25px] text-[15px] leading-[1.8] text-[#806d5e]">
+                Brew & Bean began with a simple idea —
+                that great coffee tastes even better when
+                shared with good company.
+            </p>
+            <p
+                class="mt-[14px] text-[15px] leading-[1.8] text-[#806d5e]">
+                From carefully selected beans to the last
+                warm sip, every detail is crafted to make
+                your everyday moments feel a little more special.
+            </p>
+            <a href="#"
+                class="mt-[32px] inline-flex items-center gap-[10px] border-b border-[#b87935] pb-[6px] text-[14px] font-semibold text-[#2d1e15] transition-all duration-300 hover:gap-[15px] hover:text-[#b87935]">
+
+                Discover Our Story
+
+                <span class="text-[18px] text-[#b87935]">
+                    &rarr;
+                </span>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- Why Brew & Bean -->
+<section
+    class="group relative overflow-visible bg-[#1a0e08] py-[115px] pb-[120px] text-white max-[850px]:py-[80px] max-[850px]:pb-[90px]">
+    <div
+        class="relative mx-auto w-[92%] min-[1200px]:w-[1200px]">
+        <div
+            class="relative z-[4] mb-[70px] max-w-[700px] max-[850px]:mb-[45px] max-[850px]:max-w-full">
+            <p
+                class="mb-[15px] text-[12px] font-bold tracking-[3px] text-[#d99a50]">
+                WHY BREW & BEAN
+            </p>
+
+            <h2
+                class="mt-[5px] font-['Playfair_Display',serif] text-[clamp(44px,5vw,68px)] font-semibold leading-none tracking-[-2px] text-white max-[850px]:text-[clamp(42px,9vw,58px)]">
+
+                Made with intention.
+                <br>
+
+                <em class="font-normal italic text-[#d99a50]">
+                    Served with warmth.
+                </em>
+            </h2>
+        </div>
+
+
+        <!-- Sticker -->
+        <div
+            class="pointer-events-none absolute right-[-0.5px] top-[-320px] z-[3] w-[650px] rotate-[7deg] transition-transform duration-300 group-hover:rotate-[4deg] group-hover:-translate-y-[5px] max-[850px]:right-[-20px] max-[850px]:top-[-30px] max-[850px]:w-[280px]">
+            <img
+                src="images/coffee-cup.png"
+                alt="Brew & Bean coffee cup"
+                class="block h-auto w-full mix-blend-screen drop-shadow-[0_18px_25px_rgba(0,0,0,0.35)]">
+        </div>
+
+
+        <div
+            class="relative z-[4] grid grid-cols-3 gap-[20px] border border-[#d99a50]/40 bg-[#7c5b36] shadow-[0_0_50px_rgba(217,154,80,0.1)] max-[850px]:grid-cols-1 max-[850px]:gap-0">
+
+            <!-- Why item 1 -->
+            <article
+                class="group/item1 relative min-h-[270px] p-[30px] pb-[20px] pl-[35px] transition-transform duration-300 hover:-translate-y-[5px] max-[850px]:min-h-0 max-[850px]:p-[30px_25px]">
+
+                <span
+                    class="mb-[38px] block text-[11px] font-semibold tracking-[2px] text-white/40">
+                    01
+                </span>
+
+                <div
+                    class="mb-[22px] flex h-[42px] w-[42px] items-center justify-center rounded-full border border-[#d99a50]/55 text-[18px] text-[#d99a50] transition-all duration-300 group-hover/item1:bg-[#d99a50] group-hover/item1:text-[#1a0e08]">
+                    ✦
+                </div>
+
+                <h3
+                    class="mb-[12px] font-['Playfair_Display',serif] text-[25px] font-semibold text-white">
+                    Better Beans
+                </h3>
+
+                <p
+                    class="max-w-[280px] text-[13px] leading-[1.8] text-white/58 max-[850px]:max-w-full">
+                    Carefully sourced coffee beans,
+                    chosen for their character, aroma
+                    and balanced flavor.
+                </p>
+            </article>
+
+
+            <!-- Why item 2 -->
+            <article
+                class="group/item2 relative min-h-[270px] border-l border-white/15 p-[30px] pb-[20px] pl-[38px] transition-transform duration-300 hover:-translate-y-[5px] max-[850px]:min-h-0 max-[850px]:border-l-0 max-[850px]:border-t max-[850px]:border-white/15 max-[850px]:p-[30px_25px]">
+
+                <span
+                    class="mb-[38px] block text-[11px] font-semibold tracking-[2px] text-white/40">
+                    02
+                </span>
+
+                <div
+                    class="mb-[22px] flex h-[42px] w-[42px] items-center justify-center rounded-full border border-[#d99a50]/55 text-[18px] text-[#d99a50] transition-all duration-300 group-hover/item2:bg-[#d99a50] group-hover/item2:text-[#1a0e08]">
+                    ◌
+                </div>
+
+                <h3
+                    class="mb-[12px] font-['Playfair_Display',serif] text-[25px] font-semibold text-white">
+                    Crafted Slowly
+                </h3>
+
+                <p
+                    class="max-w-[280px] text-[13px] leading-[1.8] text-white/58 max-[850px]:max-w-full">
+                    Every cup is prepared with patience,
+                    precision and attention to the little
+                    details that matter.
+                </p>
+            </article>
+
+
+            <!-- Why item 3 -->
+            <article
+                class="group/item3 relative min-h-[270px] border-l border-white/15 p-[30px] pb-[20px] pl-[38px] transition-transform duration-300 hover:-translate-y-[5px] max-[850px]:min-h-0 max-[850px]:border-l-0 max-[850px]:border-t max-[850px]:border-white/15 max-[850px]:p-[30px_25px]">
+
+                <span
+                    class="mb-[38px] block text-[11px] font-semibold tracking-[2px] text-white/40">
+                    03
+                </span>
+
+                <div
+                    class="mb-[22px] flex h-[42px] w-[42px] items-center justify-center rounded-full border border-[#d99a50]/55 text-[18px] text-[#d99a50] transition-all duration-300 group-hover/item3:bg-[#d99a50] group-hover/item3:text-[#1a0e08]">
+                    ♡
+                </div>
+
+                <h3
+                    class="mb-[12px] font-['Playfair_Display',serif] text-[25px] font-semibold text-white">
+                    Good Moments
+                </h3>
+
+                <p
+                    class="max-w-[280px] text-[13px] leading-[1.8] text-white/58 max-[850px]:max-w-full">
+                    A welcoming space made for quiet
+                    mornings, meaningful conversations
+                    and everything in between.
+                </p>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Coffee Beans -->
+<section
+    id="beans"
+    class="bg-[#3c271a] p-[60px] text-white max-[850px]:px-[25px] max-[850px]:py-[70px]">
+    <div
+        class="mb-[30px] flex items-end justify-between max-[850px]:mb-[25px]">
+        <p
+            class="m-0 mb-[12px] font-['Playfair_Display',serif] text-[18px] font-bold italic tracking-[3px] text-[wheat] max-[850px]:text-[20px]">
+            House Roast
+            <em class="text-[#d99a50]">Collection</em>
+        </p>
+
+        <a href="#"
+            class="inline-flex items-center gap-[9px] border-b border-[#d99a50] pb-[5px] font-['Montserrat',sans-serif] text-[13px] font-semibold text-[wheat] transition-all duration-300 hover:gap-[14px] hover:text-[#d99a50]">
+
+            Explore our coffee
+
+            <span class="text-[18px] text-[#d99a50]">
+                &rarr;
+            </span>
+        </a>
+    </div>
+    <div
+        class="flex w-full gap-[16px] max-[850px]:grid max-[850px]:grid-cols-2 max-[850px]:gap-x-[16px] max-[850px]:gap-y-[35px]">
+        <article class="relative min-w-0 flex-1">
+            <div
+                class="h-[300px] w-full overflow-hidden max-[850px]:h-[260px]">
+                <img
+                    src="images/morning-bloom.png"
+                    alt="Morning Bloom coffee beans"
+                    class="block h-full w-full object-cover">
+            </div>
+
+            <div
+                class="px-0 py-[20px] text-center max-[850px]:py-[16px]">
+
+                <h3
+                    class="my-[8px] font-['Montserrat',sans-serif] text-[15px] font-semibold text-[wheat] max-[850px]:text-[21px]">
+                    Morning Bloom
+                </h3>
+
+                <p
+                    class="m-0 mb-[8px] text-[12px] text-[#d99a50] max-[850px]:text-[13px]">
+                    Smooth · Nutty · Caramel
+                </p>
+            </div>
+        </article>
+
+        <article class="relative min-w-0 flex-1">
+
+            <div
+                class="h-[300px] w-full overflow-hidden max-[850px]:h-[260px]">
+                <img
+                    src="images/velvet.png"
+                    alt="Velvet Roast coffee beans"
+                    class="block h-full w-full object-cover">
+            </div>
+
+            <div
+                class="px-0 py-[20px] text-center max-[850px]:py-[16px]">
+
+                <h3
+                    class="my-[8px] font-['Montserrat',sans-serif] text-[15px] font-semibold text-[wheat] max-[850px]:text-[21px]">
+                    Velvet Roast
+                </h3>
+
+                <p
+                    class="m-0 mb-[8px] text-[12px] text-[#d99a50] max-[850px]:text-[13px]">
+                    Rich · Chocolate · Balanced
+                </p>
+            </div>
+        </article>
+
+        <article class="relative min-w-0 flex-1">
+
+            <div
+                class="h-[300px] w-full overflow-hidden max-[850px]:h-[260px]">
+                <img
+                    src="images/hillside.png"
+                    alt="Hillside blend"
+                    class="block h-full w-full object-cover">
+            </div>
+
+            <div
+                class="px-0 py-[20px] text-center max-[850px]:py-[16px]">
+
+                <h3
+                    class="my-[8px] font-['Montserrat',sans-serif] text-[15px] font-semibold text-[wheat] max-[850px]:text-[21px]">
+                    Hillside Blend
+                </h3>
+
+                <p
+                    class="m-0 mb-[8px] text-[12px] text-[#d99a50] max-[850px]:text-[13px]">
+                    Bold · Dark · Smoky
+                </p>
+            </div>
+        </article>
+
+        <article class="relative min-w-0 flex-1">
+
+            <div
+                class="h-[300px] w-full overflow-hidden max-[850px]:h-[260px]">
+                <img
+                    src="images/highlandhazelnut.png"
+                    alt="Highland Hazelnut coffee beans"
+                    class="block h-full w-full object-cover">
+            </div>
+
+            <div
+                class="px-0 py-[20px] text-center max-[850px]:py-[16px]">
+
+                <h3
+                    class="my-[8px] font-['Montserrat',sans-serif] text-[15px] font-semibold text-[wheat] max-[850px]:text-[21px]">
+                    Highland Hazelnut
+                </h3>
+
+                <p
+                    class="m-0 mb-[8px] text-[12px] text-[#d99a50] max-[850px]:text-[13px]">
+                    Smooth · Nutty · Lightly Sweet
+                </p>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+
+<!-- Testimonials -->
+<section
+    class="bg-[url('./images/bean-bg.jpeg')] py-[120px] text-[#2d1e15] max-[850px]:py-[80px] max-[850px]:pb-[90px]">
+
+    <div
+        class="mx-auto w-[92%] min-[1100px]:w-[1100px]">
+
+        <div class="mb-[45px] mt-[30px] max-[850px]:mb-[40px]">
+
+            <p
+                class="mb-[15px] text-[12px] font-bold tracking-[3px] text-[#b87935]">
+                FROM OUR CUSTOMERS
+            </p>
+
+            <h2
+                class="mt-[5px] font-['Playfair_Display',serif] text-[clamp(44px,5vw,68px)] font-semibold leading-[0.98] tracking-[-2px] text-[#2d1e15] max-[850px]:text-[clamp(42px,9vw,58px)]">
+
+                Good coffee.
+                <br>
+
+                <em class="font-normal italic text-[#b87935]">
+                    Good words.
+                </em>
+            </h2>
+        </div>
+
+
+        <div
+            class="grid grid-cols-[1.2fr_0.8fr] gap-[20px] max-[850px]:grid-cols-1">
+
+           
+            <article
+                class="flex min-h-[390px] flex-col justify-between bg-[#21130c] p-[45px] text-white max-[850px]:min-h-[350px] max-[850px]:p-[35px]">
+
+                <span
+                    class="font-['Playfair_Display',serif] text-[72px] leading-[0.5] text-[#d99a50]">
+                    “
+                </span>
+
+                <blockquote
+                    class="max-w-[600px] font-['Playfair_Display',serif] text-[clamp(25px,3vw,37px)] font-normal leading-[1.25] text-[#fffaf4]">
+                    The kind of place where you come in
+                    for one coffee and somehow stay for
+                    two hours.
+                </blockquote>
+
+                <div class="flex items-center gap-[12px]">
+
+                    <div
+                        class="flex h-[38px] w-[38px] items-center justify-center rounded-full bg-[#d99a50] text-[12px] font-bold text-[#21130c]">
+                        A
+                    </div>
+
+                    <div>
+                        <strong
+                            class="mb-[3px] block text-[12px]">
+                            Ananya R.
+                        </strong>
+
+                        <span
+                            class="block text-[10px] text-white/50">
+                            Regular guest
+                        </span>
+                    </div>
+                </div>
+            </article>
+
+
+        
+            <div
+                class="flex flex-col gap-[20px]">
+
+                <article
+                    class="flex flex-1 flex-col justify-between bg-[#fffaf4] p-[32px] max-[850px]:min-h-[220px] max-[850px]:p-[28px]">
+
+                    <div
+                        class="text-[12px] tracking-[3px] text-[#b87935]">
+                        ★★★★★
+                    </div>
+
+                    <p
+                        class="my-[25px] font-['Playfair_Display',serif] text-[18px] leading-[1.5] text-[#5f4c3d]">
+                        “Beautiful coffee, warm atmosphere
+                        and genuinely thoughtful service.”
+                    </p>
+
+                    <span
+                        class="text-[11px] font-semibold text-[#806d5e]">
+                        — Rahul M.
+                    </span>
+                </article>
+
+
+                <article
+                    class="flex flex-1 flex-col justify-between bg-[#fffaf4] p-[32px] max-[850px]:min-h-[220px] max-[850px]:p-[28px]">
+
+                    <div
+                        class="text-[12px] tracking-[3px] text-[#b87935]">
+                        ★★★★★
+                    </div>
+
+                    <p
+                        class="my-[25px] font-['Playfair_Display',serif] text-[18px] leading-[1.5] text-[#5f4c3d]">
+                        “Their cold brew is smooth,
+                        balanced and seriously good.”
+                    </p>
+
+                    <span
+                        class="text-[11px] font-semibold text-[#806d5e]">
+                        — Meera K.
+                    </span>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Visit Us Section-->
+<section
+    id="contact"
+    class="bg-[#3a2114] p-0 text-white">
+
+    <div
+        class="grid min-h-[650px] w-full grid-cols-[0.9fr_1.1fr] items-stretch max-[850px]:grid-cols-1 max-[850px]:min-h-0">
+
+        <div
+            class="w-full max-w-[680px] self-center px-[8%] py-[70px] max-[850px]:max-w-full max-[850px]:px-[25px] max-[850px]:py-[80px]">
+
+            <p
+                class="mb-[15px] text-[12px] font-bold tracking-[3px] text-[#d99a50]">
+                COME SAY HELLO
+            </p>
+
+            <h2
+                class="mt-[5px] font-['Playfair_Display',serif] text-[clamp(44px,5vw,68px)] font-semibold leading-[0.98] tracking-[-2px] text-white max-[850px]:text-[clamp(42px,9vw,58px)]">
+
+                Come by for a cup.
+                <br>
+
+                <em class="font-normal italic text-[#d99a50]">
+                    Stay for the moment.
+                </em>
+            </h2>
+
+            <p
+                class="mt-[27px] max-w-[500px] text-[14px] leading-[1.8] text-white/60 max-[850px]:max-w-full max-[850px]:text-[15px]">
+                Whether you're starting your morning,
+                meeting a friend or simply taking a
+                little time for yourself, there's always
+                a seat waiting at Brew & Bean.
+            </p>
+
+            <div
+                class="mt-[35px] flex gap-[55px] border-t border-white/14 pt-[25px]">
+
+                <div class="flex flex-col gap-[8px]">
+
+                    <span
+                        class="text-[9px] font-bold tracking-[2px] text-[#d99a50]">
+                        FIND US
+                    </span>
+
+                    <strong
+                        class="text-[12px] font-medium text-white/85">
+                        24 Bean Street, Kochi
+                    </strong>
+                </div>
+
+                <div class="flex flex-col gap-[8px]">
+
+                    <span
+                        class="text-[9px] font-bold tracking-[2px] text-[#d99a50]">
+                        OPEN DAILY
+                    </span>
+
+                    <strong
+                        class="text-[12px] font-medium text-white/85">
+                        8:00 AM — 9:00 PM
+                    </strong>
+                </div>
+            </div>
+        </div>
+
+
+        <div
+            class="group relative h-full min-h-[550px] overflow-hidden p-[50px] max-[850px]:h-[400px] max-[850px]:min-h-[400px] max-[850px]:p-[25px]">
+
+            <img
+                src="images/cafe-image.jpeg"
+                alt="Brew & Bean coffee shop"
+                class="block h-full w-full rounded-[20px] object-cover transition-transform duration-[600ms] group-hover:scale-[1.04]">
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer -->
+<footer
+    class="bg-[#120a06] px-0 pb-[25px] pt-[75px] text-white max-[850px]:pt-[65px] max-[850px]:pb-[25px] max-[600px]:pt-[55px] max-[600px]:pb-[22px]">
+
+    <div
+        class="mx-auto w-[92%] min-[1200px]:w-[1200px]">
+
+        <div
+            class="grid grid-cols-[1.8fr_1fr_1fr_1fr] gap-[60px] border-b border-white/12 pb-[65px] max-[850px]:grid-cols-2 max-[600px]:grid-cols-1">
+            <div class="max-w-[300px] max-[850px]:max-w-full">
+                <a href="#"
+                    class="inline-flex items-center gap-[10px] text-white">
+                    <span
+                        class="flex h-[40px] w-[40px] items-center justify-center rounded-full border border-white/45 text-[18px]">
+                        ☕
+                    </span>
+                    <span class="flex flex-col gap-[3px]">
+                        <span
+                            class="font-['Playfair_Display',serif] text-[21px] font-semibold leading-none">
+                            Brew & Bean
+                        </span>
+                        <span
+                            class="text-[7px] tracking-[2.5px] text-white/55">
+                            COFFEE HOUSE
+                        </span>
+                    </span>
+                </a>
+
+                <p
+                    class="mt-[22px] text-[12px] leading-[1.8] text-white/48">
+                    Thoughtfully brewed coffee,
+                    good company and moments
+                    worth slowing down for.
+                </p>
+            </div>
+
+            <div
+                class="flex flex-col items-start gap-[13px]">
+
+                <span
+                    class="mb-[8px] text-[9px] font-bold tracking-[2px] text-[#d99a50]">
+                    EXPLORE
+                </span>
+
+                <a href="#"
+                    class="text-[12px] text-white/62 transition-all duration-300 hover:translate-x-[3px] hover:text-[#d99a50]">
+                    Home
+                </a>
+
+                <a href="#menu"
+                    class="text-[12px] text-white/62 transition-all duration-300 hover:translate-x-[3px] hover:text-[#d99a50]">
+                    Menu
+                </a>
+
+                <a href="#about"
+                    class="text-[12px] text-white/62 transition-all duration-300 hover:translate-x-[3px] hover:text-[#d99a50]">
+                    Our Story
+                </a>
+
+                <a href="#beans"
+                    class="text-[12px] text-white/62 transition-all duration-300 hover:translate-x-[3px] hover:text-[#d99a50]">
+                    Our Beans
+                </a>
+            </div>
+
+            <div
+                class="flex flex-col items-start gap-[13px]">
+
+                <span
+                    class="mb-[8px] text-[9px] font-bold tracking-[2px] text-[#d99a50]">
+                    VISIT
+                </span>
+
+                <a href="#contact"
+                    class="text-[12px] text-white/62 transition-all duration-300 hover:translate-x-[3px] hover:text-[#d99a50]">
+                    Find Us
+                </a>
+
+                <a href="#contact"
+                    class="text-[12px] text-white/62 transition-all duration-300 hover:translate-x-[3px] hover:text-[#d99a50]">
+                    Opening Hours
+                </a>
+
+                <a href="#menu"
+                    class="text-[12px] text-white/62 transition-all duration-300 hover:translate-x-[3px] hover:text-[#d99a50]">
+                    Order Coffee
+                </a>
+            </div>
+
+            <div
+                class="flex flex-col items-start gap-[13px]">
+
+                <span
+                    class="mb-[8px] text-[9px] font-bold tracking-[2px] text-[#d99a50]">
+                    FOLLOW
+                </span>
+
+                <div class="flex gap-[10px]">
+
+                    <a href="https://www.instagram.com/"
+                        target="_blank"
+                        class="flex h-[36px] w-[36px] items-center justify-center rounded-full border border-white/25 text-[14px] text-white/70 transition-all duration-300 hover:-translate-y-[3px] hover:border-[#d99a50] hover:bg-[#d99a50] hover:text-[#21130c]">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="https://www.facebook.com/"
+                        target="_blank"
+                        class="flex h-[36px] w-[36px] items-center justify-center rounded-full border border-white/25 text-[14px] text-white/70 transition-all duration-300 hover:-translate-y-[3px] hover:border-[#d99a50] hover:bg-[#d99a50] hover:text-[#21130c]">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="https://in.pinterest.com/ideas/coffee-shop-website/949634511063/"
+                        target="_blank"
+                        class="flex h-[36px] w-[36px] items-center justify-center rounded-full border border-white/25 text-[14px] text-white/70 transition-all duration-300 hover:-translate-y-[3px] hover:border-[#d99a50] hover:bg-[#d99a50] hover:text-[#21130c]">
+                        <i class="fa-brands fa-pinterest-p"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Footer Bottom -->
+        <div
+            class="flex items-center justify-between gap-[15px] pt-[22px] text-[10px] text-white/35 max-[850px]:items-start max-[600px]:flex-col max-[600px]:gap-[8px]">
+
+            <span>
+                &copy; 2026 Brew & Bean. All rights reserved.
+            </span>
+
+            <span>
+                Made with coffee & care.
+            </span>
+        </div>
+
+    </div>
+</footer>
+
+
+</body>
+</html>
